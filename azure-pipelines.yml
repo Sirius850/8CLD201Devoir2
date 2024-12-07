@@ -39,7 +39,7 @@ steps:
       command: 'build'
       projects: '**/*.sln'
       configuration: 'Release'
-      arguments: '--output $(Build.ArtifactStagingDirectory)/output'
+      arguments: '/p:OutputPath=$(Build.ArtifactStagingDirectory)/output'
   
   - task: DotNetCoreCLI@2
     displayName: 'Publish Function App'
