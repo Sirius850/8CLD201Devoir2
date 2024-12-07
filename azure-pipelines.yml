@@ -58,6 +58,11 @@ steps:
       path: '$(Pipeline.Workspace'
       buildType: 'current'
   
+  - script: |
+      echo "Listing downloaded artifacts..."
+      dir $(Pipeline.Workspace)/drop
+    displayName: 'List Downloaded Artifact Files'
+
   - task: AzureFunctionApp@1
     displayName: 'Deploy to Azure Function App'
     inputs:
