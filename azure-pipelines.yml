@@ -50,5 +50,13 @@ steps:
   - publish: $(Build.ArtifactStagingDirectory)/output
     displayName: 'Publish Artifact'
     artifact: 'drop'
+  
+  - task: AzureFunctionApp@1
+    displayName: 'Deploy to Azure Function App'
+    inputs:
+      azureSubscription: 'alice'
+      appName: 'funcappdevoir2'
+      package: '$(Pipeline.Workspace)/drop/**/*.zip'
+      appType: 'functionApp'
 
 
