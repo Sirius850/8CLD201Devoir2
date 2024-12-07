@@ -17,8 +17,13 @@ steps:
     displayName: 'Install .NET SDK'
     inputs:
       packageType: 'sdk'
-      version: '8.x'
+      version: '7.x'
       installationPath: $(Agent.ToolsDirectory)/dotnet
+  
+  - powershell: |
+      Remove-Item -Recurse -Force "$(Build.SourcesDirectory)\FunctionAppDevoir2\obj"
+      Remove-Item -Recurse -Force "$(Build.SourcesDirectory)\FunctionAppDevoir2\bin"
+    displayName: 'Clean up obj and bin folders'
   
   - task: NuGetToolInstaller@1
     displayName: 'Install NuGet'
