@@ -25,8 +25,7 @@ steps:
     inputs:
       targetType: 'inline'
       script: |
-        # Forcefully kill any processes holding onto the obj and bin folders
-        Get-Process | Where-Object {$_.Path -like "*dotnet*"} | ForEach-Object { $_.Kill() }
+        Install-Module Microsoft.PowerShell.Security
         Remove-Item -Recurse -Force "$(Build.SourcesDirectory)\FunctionAppDevoir2\obj"
         Remove-Item -Recurse -Force "$(Build.SourcesDirectory)\FunctionAppDevoir2\bin"
       pwsh: true
