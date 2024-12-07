@@ -5,15 +5,21 @@ using Azure.Storage.Blobs;
 using Microsoft.Azure.Functions.Worker.Configuration;
 
 
-var host = new HostBuilder()
-    .ConfigureFunctionsWebApplication()
-    .ConfigureServices(services =>
+public class Program
+{
+    public static void Main(string[] args)
     {
-        string storageConnectionString = Environment.GetEnvironmentVariable("AzureWebJobsStorage");
-        services.AddSingleton(new BlobServiceClient(storageConnectionString));
-        services.AddApplicationInsightsTelemetryWorkerService();
-        services.ConfigureFunctionsApplicationInsights();
-    })
-    .Build();
+        var host = new HostBuilder()
+            .ConfigureFunctionsWebApplication()
+            .ConfigureServices(services =>
+            {
+                string storageConnectionString = Environment.GetEnvironmentVariable("AzureWebJobsStorage");
+                services.AddSingleton(new BlobServiceClient(storageConnectionString));
+                services.AddApplicationInsightsTelemetryWorkerService();
+                services.ConfigureFunctionsApplicationInsights();
+            })
+            .Build();
 
-host.Run();
+        host.Run();
+    }
+}
