@@ -50,6 +50,13 @@ steps:
   - publish: $(Build.ArtifactStagingDirectory)/output
     displayName: 'Publish Artifact'
     artifact: 'drop'
+    
+  - task: DownloadPipelineArtifact@2
+    displayName: 'Download Artifact'
+    inputs:
+      artifact: 'drop'
+      path: '$(Pipeline.Workspace'
+      buildType: 'current'
   
   - task: AzureFunctionApp@1
     displayName: 'Deploy to Azure Function App'
