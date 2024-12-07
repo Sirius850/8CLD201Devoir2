@@ -20,15 +20,6 @@ steps:
       version: '7.x'
       installationPath: $(Agent.ToolsDirectory)/dotnet
   
-  - task: PowerShell@2
-    displayName: 'Clean up obj and bin folders'
-    inputs:
-      targetType: 'inline'
-      script: |
-        Install-Module Microsoft.PowerShell.Security
-        Remove-Item -Recurse -Force "$(Build.SourcesDirectory)\FunctionAppDevoir2\obj"
-        Remove-Item -Recurse -Force "$(Build.SourcesDirectory)\FunctionAppDevoir2\bin"
-      pwsh: true
   - task: NuGetToolInstaller@1
     displayName: 'Install NuGet'
     
