@@ -3,7 +3,7 @@
       include:
         - main  
   pool:
-  name: 'Default'
+    name: 'Default'
 
   steps:
   #Download artifact from build pipeline
