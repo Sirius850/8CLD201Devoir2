@@ -10,7 +10,7 @@ trigger:
 
 
 pool:
-  vmImage: 'windows-latest'
+  name: 'Default'
 
 steps:
   - task: UseDotNet@2
