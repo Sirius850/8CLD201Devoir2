@@ -3,10 +3,10 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storageAccountName": {
-      "value": "storaccountdevoir2"
+      "value": "storaccdevoir2"
     },
     "functionAppName": {
-      "value": "functappdevoir2"
+      "value": "funcappdevoir2"
     },
     "hostingPlanName": {
       "value": "myFunctionAppPlan"

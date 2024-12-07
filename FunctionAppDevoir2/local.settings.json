@@ -1,8 +1,8 @@
 {
     "IsEncrypted": false,
   "Values": {
-    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=storaccountdevoir2;AccountKey=s4fhA10lmaAs7+LBHaAtLCc8X5X0xJF8K0S2/sO2kctLZsVHPZXoKZQWjGNn7GWBMu9K1FrIu2ru+AStNoghzw==;EndpointSuffix=core.windows.net",
-    "ServiceBusConnectionString": "Endpoint=sb://queuedevoir2.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=s3SQ1iOYUgIVx8ifQ/qWjZbb2oIhjc3Si+ASbHGMnww=",
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=storaccdevoir2;AccountKey=0mUh386Z2nxpVeZ4ewSbcfbDFUAvO2rK2m9CJkqFS+gmSQlHZAaYf8iRMqMPZNoaa197Xp6b3f/4+AStgjzsEQ==;EndpointSuffix=core.windows.net",
+    "ServiceBusConnectionString": "Endpoint=sb://queuedev2.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=kcE+ImaPiKYaE5XV0e9tMZs/cW9Almony+ASbNc3IQ0=",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated"
   }
 }
