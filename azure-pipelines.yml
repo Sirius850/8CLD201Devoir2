@@ -39,6 +39,7 @@ steps:
       command: 'build'
       projects: '**/*.sln'
       configuration: 'Release'
+      arguments: '/p:OutputPath=$(Build.ArtifactStagingDirectory)/output'
   
   - task: DotNetCoreCLI@2
     displayName: 'Publish Function App'
@@ -48,8 +49,9 @@ steps:
       configuration: 'Release'
       zipAfterPublish: true
       publishWebProjects: false
+      arguments: '--output $(Build.ArtifactStagingDirectory)/output'
   
-  - publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId)
+  - publish: $(Build.ArtifactStagingDirectory)/output
     displayName: 'Publish Artifact'
     artifact: 'drop'
 
