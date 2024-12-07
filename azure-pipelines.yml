@@ -21,6 +21,7 @@ steps:
       installationPath: $(Agent.ToolsDirectory)/dotnet
   
   - powershell: |
+      Import-Module Microsoft.PowerShell.Security -Force
       Remove-Item -Recurse -Force "$(Build.SourcesDirectory)\FunctionAppDevoir2\obj"
       Remove-Item -Recurse -Force "$(Build.SourcesDirectory)\FunctionAppDevoir2\bin"
     displayName: 'Clean up obj and bin folders'
