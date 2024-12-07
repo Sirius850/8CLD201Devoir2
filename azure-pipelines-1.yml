@@ -1,0 +1,25 @@
+  trigger:
+    branches:
+      include:
+        - main  
+  pool:
+  name: 'Default'
+
+  steps:
+  #Download artifact from build pipeline
+  - task: DownloadPipelineArtifact@2
+    displayName: 'Download Artifact'
+    inputs:
+      artifact: 'drop'
+      path: '$(Pipeline.Workspace'
+  
+  #Deploy to Azure Function app
+  - task: AzureFunctionApp@1
+    displayName: 'Deploy Azure Function App'
+    inputs:
+      azureSubscription: 'alice'
+      appName: 'funcappdevoir2'
+      package: '$(Pipeline.Workspace)/drop/**/*.zip'
+      appType: 'functionApp'
+
+
