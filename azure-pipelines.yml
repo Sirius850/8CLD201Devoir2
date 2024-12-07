@@ -19,7 +19,11 @@ steps:
       packageType: 'sdk'
       version: '7.x'
       installationPath: $(Agent.ToolsDirectory)/dotnet
-  
+  - task: DeleteFiles@1
+    displayName: 'Clean up obj and bin folders'
+    inputs:
+      SourceFolder: '$(Build.SourcesDirectory)'
+      Contents: '**/bin/**;**/obj/**'
   - task: NuGetToolInstaller@1
     displayName: 'Install NuGet'
     
