@@ -12,8 +12,7 @@
     inputs:
       artifact: 'drop'
       path: '$(Pipeline.Workspace)'
-      buildType: 'specific'
-      buildId: '49'
+      buildType: 'current'
   
   #Deploy to Azure Function app
   - task: AzureFunctionApp@1
