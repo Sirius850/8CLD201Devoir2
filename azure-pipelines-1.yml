@@ -11,14 +11,8 @@
     displayName: 'Download Artifact'
     inputs:
       artifact: 'drop'
-      path: '$(Pipeline.Workspace)'
+      path: '$(Pipeline.Workspace)/drop'
       buildType: 'current'
-  
-  # Check the artifact directory structure for debugging
-  - script: |
-      echo "Listing downloaded artifacts..."
-      dir $(Pipeline.Workspace)/drop
-    displayName: 'List Downloaded Artifact Files'
   
   #Deploy to Azure Function app
   - task: AzureFunctionApp@1
