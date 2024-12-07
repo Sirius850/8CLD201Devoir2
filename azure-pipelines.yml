@@ -25,7 +25,7 @@ steps:
     inputs:
       targetType: 'inline'
       script: |
-        Import-Module Microsoft.PowerShell.Security
+        Update-Module Microsoft.PowerShell.Security
         Remove-Item -Recurse -Force "$(Build.SourcesDirectory)\FunctionAppDevoir2\obj"
         Remove-Item -Recurse -Force "$(Build.SourcesDirectory)\FunctionAppDevoir2\bin"
       pwsh: true 
