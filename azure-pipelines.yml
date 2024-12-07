@@ -47,6 +47,14 @@ steps:
       zipAfterPublish: true
       arguments: '--output $(Build.ArtifactStagingDirectory)/output'
 
+  - task: ArchiveFiles@2
+    displayName: 'Zip Artifact'
+    inputs:
+      rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/output'
+      includeRootFolder: false
+      archiveFile: '$(Build.ArtifactStagingDirectory)/output.zip'
+      replaceExistingArchive: true
+
   - publish: $(Build.ArtifactStagingDirectory)/output
     displayName: 'Publish Artifact'
     artifact: 'drop'
@@ -57,18 +65,12 @@ steps:
       artifact: 'drop'
       path: '$(Pipeline.Workspace'
       buildType: 'current'
-  
-  - script: |
-      echo "Listing downloaded artifacts..."
-      dir $(Pipeline.Workspace)/drop
-    displayName: 'List Downloaded Artifact Files'
-
   - task: AzureFunctionApp@1
     displayName: 'Deploy to Azure Function App'
     inputs:
       azureSubscription: 'alice'
       appName: 'funcappdevoir2'
-      package: '$(Pipeline.Workspace)/drop/**/*.zip'
+      package: '$(Pipeline.Workspace)/drop/output.zip'
       appType: 'functionApp'
 
 
