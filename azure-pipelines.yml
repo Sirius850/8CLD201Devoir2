@@ -20,13 +20,12 @@ steps:
       version: '7.x'
       installationPath: $(Agent.ToolsDirectory)/dotnet
   
-  - task: Bash@3
+  - task: CmdLine@2
     displayName: 'Clean up obj and bin folders'
     inputs:
-      targetType: 'inline'
       script: |
-        rm -rf $(Build.SourcesDirectory)/FunctionAppDevoir2/obj
-        rm -rf $(Build.SourcesDirectory)/FunctionAppDevoir2/bin
+        del /f /q "$(Build.SourcesDirectory)\FunctionAppDevoir2\obj\*"
+        del /f /q "$(Build.SourcesDirectory)\FunctionAppDevoir2\bin\*"
   
   - task: NuGetToolInstaller@1
     displayName: 'Install NuGet'
