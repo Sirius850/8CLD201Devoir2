@@ -63,7 +63,7 @@ steps:
     displayName: 'Download Artifact'
     inputs:
       artifact: 'drop'
-      path: '$(Pipeline.Workspace'
+      path: '$(Pipeline.Workspace)'
       buildType: 'current'
   - task: AzureFunctionApp@1
     displayName: 'Deploy to Azure Function App'
