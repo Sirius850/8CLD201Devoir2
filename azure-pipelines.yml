@@ -21,15 +21,32 @@ steps:
       installationPath: $(Agent.ToolsDirectory)/dotnet
   
   - task: PowerShell@2
+    displayName: 'List obj and bin directories before cleanup'
+    inputs:
+      targetType: 'inline'
+      script: |
+        Write-Host "Listing obj directory contents before cleanup"
+        Get-ChildItem "$(Build.SourcesDirectory)\FunctionAppDevoir2\obj" -Recurse
+        Write-Host "Listing bin directory contents before cleanup"
+        Get-ChildItem "$(Build.SourcesDirectory)\FunctionAppDevoir2\bin" -Recurse
+  - task: PowerShell@2
     displayName: 'Clean up obj and bin folders'
     inputs:
       targetType: 'inline'
       script: |
-        Update-Module Microsoft.PowerShell.Security
         Remove-Item -Recurse -Force "$(Build.SourcesDirectory)\FunctionAppDevoir2\obj"
         Remove-Item -Recurse -Force "$(Build.SourcesDirectory)\FunctionAppDevoir2\bin"
       pwsh: true 
   
+  - task: PowerShell@2
+    displayName: 'List obj and bin directories after cleanup'
+    inputs:
+      targetType: 'inline'
+      script: |
+        Write-Host "Listing obj directory contents after cleanup"
+        Get-ChildItem "$(Build.SourcesDirectory)\FunctionAppDevoir2\obj" -Recurse
+        Write-Host "Listing bin directory contents after cleanup"
+        Get-ChildItem "$(Build.SourcesDirectory)\FunctionAppDevoir2\bin" -Recurse
   - task: NuGetToolInstaller@1
     displayName: 'Install NuGet'
     
