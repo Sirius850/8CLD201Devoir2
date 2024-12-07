@@ -11,7 +11,7 @@
     displayName: 'Download Artifact'
     inputs:
       artifact: 'drop'
-      path: '$(Pipeline.Workspace'
+      path: '$(Pipeline.Workspace)'
   
   #Deploy to Azure Function app
   - task: AzureFunctionApp@1
