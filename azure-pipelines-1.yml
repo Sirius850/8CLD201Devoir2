@@ -11,8 +11,9 @@
     displayName: 'Download Artifact'
     inputs:
       artifact: 'drop'
-      path: '$(Pipeline.Workspace)/drop'
-      buildType: 'current'
+      path: '$(Pipeline.Workspace)'
+      buildType: 'specific'
+      buildId: '49'
   
   #Deploy to Azure Function app
   - task: AzureFunctionApp@1
